@@ -1,0 +1,90 @@
+{
+  "catalogo": [
+    {
+      "id": 1,
+      "nombre": "Air Pro Max Runner",
+      "categoria": "Deportivos",
+      "precio": 89.99,
+      "tallas": "38, 39, 40, 41, 42, 43",
+      "colores": [
+        { "nombre": "Rojo Pasión", "hex": "#e11d48", "img": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&q=80" },
+        { "nombre": "Azul Eléctrico", "hex": "#2563eb", "img": "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=700&q=80" },
+        { "nombre": "Negro Stealth", "hex": "#0f172a", "img": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=700&q=80" }
+      ]
+    },
+    {
+      "id": 2,
+      "nombre": "Urban Street Classic",
+      "categoria": "Casuales",
+      "precio": 65.00,
+      "tallas": "36, 37, 38, 39, 40, 41",
+      "colores": [
+        { "nombre": "Blanco Puro", "hex": "#ffffff", "img": "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=700&q=80" },
+        { "nombre": "Amarillo Mostaza", "hex": "#eab308", "img": "https://images.unsplash.com/photo-1514989940723-e8e51635da99?w=700&q=80" }
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "Executive Oxford Leather",
+      "categoria": "Formales",
+      "precio": 110.00,
+      "tallas": "39, 40, 41, 42, 43, 44",
+      "colores": [
+        { "nombre": "Café Miel", "hex": "#78350f", "img": "https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=700&q=80" },
+        { "nombre": "Negro Ejecutivo", "hex": "#1e293b", "img": "https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=700&q=80" }
+      ]
+    },
+    {
+      "id": 4,
+      "nombre": "Summer Horizon Sandal",
+      "categoria": "Sandalias",
+      "precio": 39.99,
+      "tallas": "35, 36, 37, 38, 39",
+      "colores": [
+        { "nombre": "Cuero Marrón", "hex": "#b45309", "img": "https://images.unsplash.com/photo-1603808033192-082d6919d3e1?w=700&q=80" }
+      ]
+    },
+    {
+      "id": 5,
+      "nombre": "Wilderness Explorer Boot",
+      "categoria": "Botas",
+      "precio": 125.50,
+      "tallas": "40, 41, 42, 43, 44, 45",
+      "colores": [
+        { "nombre": "Marrón Táctico", "hex": "#57534e", "img": "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=700&q=80" }
+      ]
+    }
+  ],
+  "config": {
+    "storeName": "Calzados Elite",
+    "storeSubtitle": "Catálogo Exclusivo 2026",
+    "logo": "",
+    "whatsapp": "584120000000",
+    "bgColor": "#f4f6f9",
+    "bgImage": "",
+    "textColor": "#1e293b",
+    "headerBg": "#ffffff",
+    "accentColor": "#e11d48",
+    "font": "'Poppins', sans-serif",
+    "categorias": [
+      { "nombre": "Deportivos", "icono": "fa-solid fa-person-running" },
+      { "nombre": "Casuales", "icono": "fa-solid fa-shoe-prints" },
+      { "nombre": "Formales", "icono": "fa-solid fa-user-tie" },
+      { "nombre": "Sandalias", "icono": "fa-solid fa-sun" },
+      { "nombre": "Botas", "icono": "fa-solid fa-mountain" }
+    ],
+    "carousel": [
+      {
+        "img": "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=1400&q=80",
+        "title": "Nueva Colección Urban 2026",
+        "sub": "Diseño, comodidad y tendencia en cada paso."
+      },
+      {
+        "img": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=1400&q=80",
+        "title": "Edición Limitada Pro Sports",
+        "sub": "Alto rendimiento para superar tus límites."
+      }
+    ]
+  },
+  "adminPassword": "admin123"
+}

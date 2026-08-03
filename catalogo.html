@@ -1,0 +1,2710 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title id="pageTitle">Catálogo de Zapatos | Tienda Oficial</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link id="fontLink" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Montserrat:wght@400;600;700;900&family=Playfair+Display:wght@600;800&family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #f4f6f9;
+            --bg-image: none;
+            --text-color: #1e293b;
+            --header-bg: #ffffff;
+            --header-text: #0f172a;
+            --accent-color: #e11d48;
+            --accent-hover: #be123c;
+            --card-bg: #ffffff;
+            --font-family: 'Poppins', sans-serif;
+            --card-radius: 16px;
+            --shadow-style: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            background-image: var(--bg-image);
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            min-height: 100vh;
+            padding-bottom: 60px;
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--header-bg);
+            color: var(--header-text);
+            padding: 16px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            backdrop-filter: blur(10px);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-icon {
+            font-size: 28px;
+            color: var(--accent-color);
+        }
+
+        .brand-logo-img {
+            max-height: 50px;
+            max-width: 160px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .brand-text h1 {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+
+        .brand-text span {
+            color: var(--accent-color);
+        }
+
+        .brand-text p {
+            font-size: 11px;
+            opacity: 0.7;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-container {
+            position: relative;
+            width: 260px;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 10px 15px 10px 40px;
+            border: 1px solid #e2e8f0;
+            border-radius: 50px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .search-box:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.15);
+        }
+
+        .btn-admin-access {display:none !important;}
+            background: var(--header-text);
+            color: var(--header-bg);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-admin-access:hover {
+            background: var(--accent-color);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        /* HERO CARRUSEL */
+        .carousel-section {
+            max-width: 1350px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+        }
+
+        .carousel {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            max-height: 480px;
+            background: #0f172a;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            position: relative;
+            height: 450px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.75);
+        }
+
+        .carousel-overlay {
+            position: absolute;
+            bottom: 60px;
+            left: 50px;
+            right: 50px;
+            color: white;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .carousel-badge {
+            background: var(--accent-color);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .carousel-overlay h2 {
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .carousel-overlay p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            z-index: 3;
+        }
+
+        .carousel-btn:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev { left: 20px; }
+        .carousel-btn.next { right: 20px; }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 3;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            width: 30px;
+            border-radius: 10px;
+            background: var(--accent-color);
+        }
+
+        /* CONTROLES Y FILTROS */
+        .controls-container {
+            max-width: 1350px;
+            margin: 30px auto 10px;
+            padding: 0 20px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding-bottom: 10px;
+            scrollbar-width: thin;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .filter-btn {
+            padding: 10px 22px;
+            border-radius: 50px;
+            border: 1px solid rgba(0,0,0,0.08);
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--text-color);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .filter-btn.active {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+            box-shadow: 0 4px 15px rgba(225, 29, 72, 0.3);
+        }
+
+        /* GRID DE PRODUCTOS */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 28px;
+            max-width: 1350px;
+            margin: 0 auto;
+            padding: 10px 20px 40px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--card-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-style);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(5px);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 2;
+        }
+
+        .card-image-container {
+            width: 100%;
+            height: 270px;
+            position: relative;
+            overflow: hidden;
+            background: #f1f5f9;
+            cursor: pointer;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-image {
+            transform: scale(1.06);
+        }
+
+        .card-body {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-category {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #64748b;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .card-price {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 12px;
+        }
+
+        .card-sizes-wrapper {
+            margin-bottom: 15px;
+        }
+
+        .card-sizes-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #94a3b8;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .size-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .size-tag {
+            background: #f1f5f9;
+            color: #334155;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        .card-colors-section {
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .colors-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+        }
+
+        .colors-list {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .color-dot {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid white;
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.2);
+            position: relative;
+        }
+
+        .color-dot:hover {
+            transform: scale(1.2);
+        }
+
+        .color-dot.active {
+            transform: scale(1.2);
+            box-shadow: 0 0 0 2.5px var(--accent-color);
+        }
+
+        .btn-detail {
+            width: 100%;
+            margin-top: 15px;
+            background: var(--text-color);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 13px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-detail:hover {
+            background: var(--accent-color);
+            box-shadow: 0 5px 15px rgba(225, 29, 72, 0.3);
+        }
+
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow-style);
+        }
+
+        .empty-state i {
+            font-size: 50px;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        /* MODALES */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            max-width: 850px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden;
+            animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes modalPop {
+            from { transform: scale(0.9); }
+            to { transform: scale(1); }
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: rgba(255,255,255,0.85);
+            border: none;
+            width: 38px; height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.2s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .close-modal:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .modal-img-col {
+            background: #f8fafc;
+            height: 100%;
+            min-height: 380px;
+            position: relative;
+        }
+
+        .modal-img-col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-info-col {
+            padding: 35px 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-category {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .modal-title {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .modal-price {
+            font-size: 28px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+
+        .modal-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #64748b;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .size-picker {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .size-option {
+            min-width: 44px;
+            height: 44px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .size-option:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .size-option.selected {
+            border-color: var(--accent-color);
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: auto;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background: #1eb954;
+            transform: translateY(-2px);
+        }
+
+        /* ICON PICKER GRID */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .icon-option {
+            height: 45px;
+            border: 2px solid #cbd5e1;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: #f8fafc;
+            color: #334155;
+        }
+
+        .icon-option:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        .icon-option.selected {
+            border-color: var(--accent-color);
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* MODAL ADMINISTRADOR LOGIN */
+        .login-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            position: relative;
+        }
+
+        .login-icon {
+            width: 70px;
+            height: 70px;
+            background: #fff1f2;
+            color: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 20px;
+        }
+
+        .login-title {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .login-sub {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #475569;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.15);
+        }
+
+        .btn-block {
+            width: 100%;
+            padding: 14px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-block:hover {
+            background: var(--accent-hover);
+        }
+
+        /* PANEL ADMIN (SIDEBAR / DASHBOARD) */
+        .admin-drawer {
+            position: fixed;
+            top: 0; right: 0;
+            width: 90%;
+            max-width: 850px;
+            height: 100vh;
+            background: #ffffff;
+            box-shadow: -10px 0 40px rgba(0,0,0,0.2);
+            z-index: 2100;
+            transform: translateX(100%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .admin-drawer.open {
+            transform: translateX(0);
+        }
+
+        .admin-header {
+            padding: 20px 30px;
+            background: #0f172a;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-header h2 {
+            font-size: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-nav {
+            display: flex;
+            background: #1e293b;
+            padding: 0 20px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .admin-tab {
+            padding: 15px 20px;
+            color: #94a3b8;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .admin-tab:hover { color: white; }
+        .admin-tab.active {
+            color: white;
+            border-bottom-color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .admin-body {
+            padding: 30px;
+            overflow-y: auto;
+            flex-grow: 1;
+            background: #f8fafc;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .admin-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            margin-bottom: 25px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .admin-card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        /* DUAL IMAGE SELECTOR (LINK & LOCAL) */
+        .image-input-box {
+            border: 2px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 15px;
+            background: #f8fafc;
+            margin-top: 8px;
+        }
+
+        .image-input-mode-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .mode-tab {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            background: #e2e8f0;
+            color: #475569;
+        }
+
+        .mode-tab.active {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .img-preview-thumb {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            object-fit: cover;
+            border: 1px solid #cbd5e1;
+            margin-top: 8px;
+            background: #e2e8f0;
+        }
+
+        .color-variant-row {
+            display: grid;
+            grid-template-columns: 60px 1fr 1fr 40px;
+            gap: 10px;
+            align-items: center;
+            background: #f1f5f9;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .btn-danger-icon {
+            color: #ef4444;
+            background: #fee2e2;
+            border: none;
+            width: 36px; height: 36px;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .btn-danger-icon:hover {
+            background: #ef4444;
+            color: white;
+        }
+
+        /* TABLA DE ZAPATOS */
+        .shoes-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+
+        .shoes-table th, .shoes-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .shoes-table th {
+            background: #f8fafc;
+            font-weight: 700;
+            color: #475569;
+            text-transform: uppercase;
+            font-size: 11px;
+        }
+
+        .shoes-table tr:hover {
+            background: #f1f5f9;
+        }
+
+        .table-thumb {
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        /* FAB BOTÓN FLOTANTE */
+        .fab-admin {display:none !important;}
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #0f172a;
+            color: white;
+            border: none;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.4);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .fab-admin:hover {
+            transform: scale(1.1) rotate(90deg);
+            background: var(--accent-color);
+        }
+
+        /* ADAPTACIÓN CELULARES Y TABLETS (RESPONSIVE MOVILE DESIGN) */
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 16px;
+                gap: 12px;
+            }
+
+            .brand-container {
+                flex-grow: 1;
+            }
+
+            .brand-text h1 {
+                font-size: 18px;
+            }
+
+            .brand-text p {
+                font-size: 10px;
+            }
+
+            .brand-logo-img {
+                max-height: 40px;
+                max-width: 120px;
+            }
+
+            .search-container {
+                width: 100%;
+                order: 3;
+            }
+
+            .search-box {
+                padding: 10px 15px 10px 38px;
+                font-size: 13px;
+            }
+
+            .btn-admin-access {
+                padding: 8px 14px;
+                font-size: 11px;
+            }
+
+            .carousel-section {
+                padding: 0 12px;
+                margin-top: 12px;
+            }
+
+            .carousel {
+                border-radius: 14px;
+            }
+
+            .carousel-item {
+                height: 280px;
+            }
+
+            .carousel-overlay {
+                left: 16px; right: 16px; bottom: 25px;
+                max-width: 100%;
+            }
+
+            .carousel-overlay h2 {
+                font-size: 22px;
+                margin-bottom: 6px;
+            }
+
+            .carousel-overlay p {
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+
+            .carousel-badge {
+                padding: 4px 10px;
+                font-size: 10px;
+            }
+
+            .carousel-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 14px;
+            }
+
+            .carousel-btn.prev { left: 10px; }
+            .carousel-btn.next { right: 10px; }
+
+            .controls-container {
+                margin: 20px auto 5px;
+                padding: 0 16px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .filter-bar {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+                gap: 20px;
+                padding: 10px 16px 40px;
+            }
+
+            .card {
+                border-radius: 14px;
+            }
+
+            .card-image-container {
+                height: 240px;
+            }
+
+            .card-title {
+                font-size: 17px;
+            }
+
+            .card-price {
+                font-size: 19px;
+            }
+
+            .color-dot {
+                width: 28px;
+                height: 28px;
+            }
+
+            /* MODAL EN CELULAR */
+            .modal {
+                padding: 10px;
+            }
+
+            .modal-content {
+                grid-template-columns: 1fr;
+                max-height: 92vh;
+                border-radius: 20px;
+            }
+
+            .modal-img-col {
+                height: 240px;
+                min-height: auto;
+            }
+
+            .modal-info-col {
+                padding: 20px 18px;
+            }
+
+            .modal-title {
+                font-size: 22px;
+            }
+
+            .modal-price {
+                font-size: 24px;
+                margin-bottom: 15px;
+            }
+
+            .size-picker {
+                gap: 6px;
+                margin-bottom: 20px;
+            }
+
+            .size-option {
+                min-width: 40px;
+                height: 40px;
+                font-size: 13px;
+            }
+
+            .btn-whatsapp {
+                padding: 14px;
+                font-size: 14px;
+            }
+
+            /* ADMIN DRAWER EN CELULAR */
+            .admin-drawer {
+                width: 100%;
+            }
+
+            .admin-header {
+                padding: 16px 20px;
+            }
+
+            .admin-header h2 {
+                font-size: 17px;
+            }
+
+            .admin-nav {
+                padding: 0 10px;
+            }
+
+            .admin-tab {
+                padding: 12px 14px;
+                font-size: 12px;
+            }
+
+            .admin-body {
+                padding: 16px;
+            }
+
+            .admin-card {
+                padding: 16px;
+                border-radius: 14px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .color-variant-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .icon-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .fab-admin {
+                bottom: 20px;
+                right: 20px;
+                width: 52px;
+                height: 52px;
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-item {
+                height: 230px;
+            }
+
+            .carousel-overlay h2 {
+                font-size: 18px;
+            }
+
+            .carousel-overlay p {
+                font-size: 11px;
+            }
+
+            .icon-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+  
+    
+    
+
+  </div>
+</div>
+
+    <!-- ENCABEZADO -->
+    <header>
+        <div class="brand-container">
+            <div id="brandLogoContainer">
+                <i class="fa-solid fa-shoe-prints brand-icon"></i>
+            </div>
+            <div class="brand-text">
+                <h1 id="headerTitle">Calzados <span>Elite</span></h1>
+                <p id="headerSubtitle">Catálogo Exclusivo 2026</p>
+            </div>
+        </div>
+
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" class="search-box" id="searchInput" placeholder="Buscar por estilo o nombre..." oninput="filtrarProductos()">
+        </div>
+
+        <div class="header-actions">
+            <button class="btn-admin-access" onclick="abrirAdminModal()">
+                <i class="fa-solid fa-user-gear"></i> Modo Admin
+            </button>
+        </div>
+    </header>
+
+    <!-- CARRUSEL PRINCIPAL -->
+    <section class="carousel-section">
+        <div class="carousel">
+            <div class="carousel-inner" id="carouselInner"></div>
+            <button class="carousel-btn prev" onclick="moverCarrusel(-1)"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-btn next" onclick="moverCarrusel(1)"><i class="fa-solid fa-chevron-right"></i></button>
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </section>
+
+    <!-- FILTROS DE CLASIFICACIÓN -->
+    <div class="controls-container">
+        <div class="section-header">
+            <div class="section-title">
+                <i class="fa-solid fa-layer-group" style="color: var(--accent-color);"></i>
+                Nuestra Colección
+            </div>
+            <div class="filter-bar" id="categoryFilterBar">
+                <!-- Se genera dinámicamente -->
+            </div>
+        </div>
+    </div>
+
+    <!-- GRID DE PRODUCTOS -->
+    <main class="products-grid" id="productsGrid"></main>
+
+    <!-- BOTÓN FLOTANTE ADMIN -->
+    <button class="fab-admin" onclick="abrirAdminModal()" title="Panel Administrador">
+                <span class="modal-category" id="modalCategory">Damas</span>
+                <h2 class="modal-title" id="modalTitle">Nombre Zapato</h2>
+                <div class="modal-price" id="modalPrice">$0.00</div>
+
+                <label class="modal-label">Colores Disponibles:</label>
+                <div class="colors-list" id="modalColors" style="margin-bottom: 20px;"></div>
+
+                <label class="modal-label">Selecciona tu Talla:</label>
+                <div class="size-picker" id="modalSizes"></div>
+
+                <a href="#" target="_blank" class="btn-whatsapp" id="btnWhatsapp">
+                    <i class="fa-brands fa-whatsapp" style="font-size: 22px;"></i> Encargar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL NUEVA CATEGORÍA -->
+    <div class="modal" id="categoryModal">
+        <div class="login-card">
+            <button class="close-modal" onclick="cerrarModal('categoryModal')">&times;</button>
+            <div class="login-icon">
+                <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <h3 class="login-title">Añadir Nueva Categoría</h3>
+            <p class="login-sub">Crea una clasificación e independízala con su propio símbolo.</p>
+
+            <div class="input-group">
+                <label>Nombre de la Categoría:</label>
+                <input type="text" class="form-control" id="newCategoryName" placeholder="Ej: Tacones, Escolar, Infantil...">
+            </div>
+
+            <div class="input-group">
+                <label>Selecciona un Símbolo / Icono:</label>
+                <div class="icon-grid" id="iconPickerGrid">
+                    <div class="icon-option selected" data-icon="fa-solid fa-person-running" onclick="seleccionarIcono(this)"><i class="fa-solid fa-person-running"></i></div>
+                    <div class="icon-option" data-icon="fa-solid fa-shoe-prints" onclick="seleccionarIcono(this)"><i class="fa-solid fa-shoe-prints"></i></div>
+                    <div class="icon-option" data-icon="fa-solid fa-user-tie" onclick="seleccionarIcono(this)"><i class="fa-solid fa-user-tie"></i></div>
+                    <div class="icon-option" data-icon="fa-solid fa-sun" onclick="seleccionarIcono(this)"><i class="fa-solid fa-sun"></i></div>
+                    <div class="icon-option" data-icon="fa-solid fa-mountain" onclick="seleccionarIcono(this)"><i class="fa-solid fa-mountain"></i></div>
+                    <div class="icon-option" data-icon="fa-solid fa-person-dress" onclick="seleccionarIcono(this)"><i class="fa-solid fa-person-dress"></i></div>
+                    <div class="icon-option" data-icon="fa-solid fa-child" onclick="seleccionarIcono(this)"><i class="fa-solid fa-child"></i></div>
+                    <div class="icon-option" data-icon="fa-solid fa-futbol" onclick="seleccionarIcono(this)"><i class="fa-solid fa-futbol"></i></div>
+                    <div class="icon-option" data-icon="fa-solid fa-briefcase" onclick="seleccionarIcono(this)"><i class="fa-solid fa-briefcase"></i></div>
+                    <div class="icon-option" data-icon="fa-solid fa-graduation-cap" onclick="seleccionarIcono(this)"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <div class="icon-option" data-icon="fa-solid fa-star" onclick="seleccionarIcono(this)"><i class="fa-solid fa-star"></i></div>
+                    <div class="icon-option" data-icon="fa-solid fa-tag" onclick="seleccionarIcono(this)"><i class="fa-solid fa-tag"></i></div>
+                </div>
+            </div>
+
+            <button type="button" class="btn-block" onclick="guardarNuevaCategoria()">
+                <i class="fa-solid fa-plus"></i> Guardar Categoría
+            </button>
+        </div>
+    </div>
+
+    <!-- MODAL LOGIN ADMINISTRADOR -->
+    <div class="modal" id="loginModal">
+        <div class="login-card">
+            <button class="close-modal" onclick="cerrarModal('loginModal')">&times;</button>
+            <div class="login-icon">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <h3 class="login-title">Acceso Administrador</h3>
+            <p class="login-sub">Ingresa tu contraseña para gestionar el catálogo y diseño.</p>
+            
+            <form onsubmit="autenticarAdmin(event)">
+                <div class="input-group">
+                    <label>Contraseña:</label>
+                    <input type="password" class="form-control" id="adminPassInput" placeholder="Contraseña..." required autofocus>
+                </div>
+                <button type="submit" class="btn-block">
+                    <i class="fa-solid fa-right-to-bracket"></i> Entrar al Panel
+                </button>
+            </form>
+            <p style="font-size: 11px; color: #94a3b8; margin-top: 15px;">Contraseña por defecto: <strong>admin123</strong></p>
+        </div>
+    </div>
+
+    <!-- PANEL ADMINISTRADOR (DRAWER) -->
+    <div class="admin-drawer" id="adminDrawer">
+        <div class="admin-header">
+            <h2><i class="fa-solid fa-sliders"></i> Panel de Administración</h2>
+            <button class="close-modal" style="position:static; background:rgba(255,255,255,0.1); color:white;" onclick="cerrarAdminDrawer()">&times;</button>
+        </div>
+
+        <div class="admin-nav">
+            <div class="admin-tab active" onclick="switchAdminTab('tabZapatos', this)"><i class="fa-solid fa-box"></i> Zapatos</div>
+            <div class="admin-tab" onclick="switchAdminTab('tabDiseno', this)"><i class="fa-solid fa-palette"></i> Diseño & Estilo</div>
+            <div class="admin-tab" onclick="switchAdminTab('tabCarrusel', this)"><i class="fa-solid fa-images"></i> Banners Carrusel</div>
+            <div class="admin-tab" onclick="switchAdminTab('tabAjustes', this)"><i class="fa-solid fa-shield-halved"></i> Ajustes</div>
+        </div>
+
+        <div class="admin-body">
+
+            <!-- TAB 1: GESTIÓN DE ZAPATOS -->
+            <div class="tab-content active" id="tabZapatos">
+                <div class="admin-card">
+                    <h3 id="formShoeTitle"><i class="fa-solid fa-plus-circle" style="color:var(--accent-color);"></i> Añadir Nuevo Modelo</h3>
+                    
+                    <input type="hidden" id="editShoeId">
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>Nombre del Zapato:</label>
+                            <input type="text" class="form-control" id="shoeName" placeholder="Ej: Air Pro Max">
+                        </div>
+                        
+                        <!-- SELECTOR DE CATEGORÍA CON BOTÓN PARA AÑADIR NUEVA -->
+                        <div class="input-group">
+                            <label>Categoría / Clasificación:</label>
+                            <div style="display:flex; gap:8px;">
+                                <select class="form-control" id="shoeCategorySelect" style="flex-grow:1;"></select>
+                                <button type="button" class="btn-block" style="width:auto; padding:10px 16px; background:var(--accent-color); color:white; white-space:nowrap; display:flex; align-items:center; gap:6px;" onclick="abrirModalNuevaCategoria()">
+                                    <i class="fa-solid fa-plus"></i> Nueva
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Precio ($ USD / Moneda):</label>
+                            <input type="number" step="0.01" class="form-control" id="shoePrice" placeholder="Ej: 49.99">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Tallas Disponibles (Separadas por comas):</label>
+                        <input type="text" class="form-control" id="shoeSizes" placeholder="Ej: 36, 37, 38, 39, 40, 41">
+                    </div>
+
+                    <div class="admin-card" style="background:#f8fafc; margin-top:20px;">
+                        <h4 style="font-size:14px; font-weight:700; margin-bottom:12px;">Variantes de Color e Imágenes</h4>
+                        <p style="font-size:12px; color:#64748b; margin-bottom:15px;">Añade los colores disponibles. Puedes usar un enlace URL de internet o subir una foto local de tu computadora.</p>
+                        
+                        <div id="colorVariantsContainer"></div>
+
+                        <button type="button" class="btn-block" style="background:#e2e8f0; color:#334155; margin-top:10px;" onclick="agregarFilaColor()">
+                            <i class="fa-solid fa-plus"></i> + Añadir Variante de Color
+                        </button>
+                    </div>
+
+                    <div style="display:flex; gap:10px; margin-top:20px;">
+                        <button type="button" class="btn-block" onclick="guardarZapato()">
+                            <i class="fa-solid fa-floppy-disk"></i> Guardar Zapato
+                        </button>
+                        <button type="button" class="btn-block" style="background:#cbd5e1; color:#334155;" onclick="limpiarFormularioZapato()">
+                            Cancelar / Limpiar
+                        </button>
+                    </div>
+                </div>
+
+                <!-- LISTADO Y GESTIÓN DE ZAPATOS EXISTENTES -->
+                <div class="admin-card">
+                    <h3><i class="fa-solid fa-list"></i> Zapatos Registrados</h3>
+                    <div style="overflow-x:auto;">
+                        <table class="shoes-table">
+                            <thead>
+                                <tr>
+                                    <th>Imagen</th>
+                                    <th>Nombre</th>
+                                    <th>Categoría</th>
+                                    <th>Precio</th>
+                                    <th>Tallas</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="shoesTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: DISEÑO & ESTILO -->
+            <div class="tab-content" id="tabDiseno">
+                <div class="admin-card">
+                    <h3><i class="fa-solid fa-paint-roller"></i> Identidad de la Tienda</h3>
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>Nombre de la Tienda:</label>
+                            <input type="text" class="form-control" id="configStoreName" onchange="actualizarDiseno()">
+                        </div>
+                        <div class="input-group">
+                            <label>Subtítulo / Eslogan:</label>
+                            <input type="text" class="form-control" id="configStoreSubtitle" onchange="actualizarDiseno()">
+                        </div>
+                        <div class="input-group">
+                            <label>Teléfono WhatsApp (Con código de país):</label>
+                            <input type="text" class="form-control" id="configWhatsapp" placeholder="Ej: 584120000000" onchange="actualizarDiseno()">
+                        </div>
+                    </div>
+
+                    <!-- CAMBIAR LOGO DE LA EMPRESA -->
+                    <div class="image-input-box" style="margin-top:15px;">
+                        <label style="font-weight:700; font-size:13px;">Logo de la Empresa (Link URL o Archivo Local):</label>
+                        <div class="image-input-mode-tabs" style="margin-top:8px;">
+                            <span class="mode-tab active" id="logoModeLinkTab" onclick="toggleLogoInputMode('link')">Enlace URL</span>
+                            <span class="mode-tab" id="logoModeFileTab" onclick="toggleLogoInputMode('file')">Subir Archivo Local</span>
+                        </div>
+                        
+                        <div id="logoUrlContainer">
+                            <input type="text" class="form-control" id="configLogoUrl" placeholder="Pega el enlace de tu logo https://..." onchange="actualizarDiseno()">
+                        </div>
+                        <div id="logoFileContainer" style="display:none;">
+                            <input type="file" class="form-control" accept="image/*" onchange="subirLogoLocal(this)">
+                        </div>
+                        <div style="margin-top:10px; display:flex; align-items:center; gap:12px;">
+                            <img id="configLogoPreview" class="img-preview-thumb" src="" alt="Logo Vista Previa" style="display:none; max-height:45px; width:auto;">
+                            <button type="button" style="font-size:12px; color:#ef4444; border:none; background:none; cursor:pointer;" onclick="quitarLogo()">Quitar Logo / Usar Icono</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GESTIÓN DE CATEGORÍAS EN EL ADMIN -->
+                <div class="admin-card">
+                    <h3><i class="fa-solid fa-tags"></i> Categorías Registradas y Símbolos</h3>
+                    <div id="categoriesAdminList"></div>
+                    <button type="button" class="btn-block" style="background:#e2e8f0; color:#334155; margin-top:10px;" onclick="abrirModalNuevaCategoria()">
+                        <i class="fa-solid fa-plus"></i> Añadir Nueva Categoría
+                    </button>
+                </div>
+
+                <div class="admin-card">
+                    <h3><i class="fa-solid fa-palette"></i> Paleta de Colores & Fondo</h3>
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>Color de Fondo del Sitio:</label>
+                            <input type="color" class="form-control" id="configBgColor" style="height:45px;" onchange="actualizarDiseno()">
+                        </div>
+                        <div class="input-group">
+                            <label>Color del Texto Principal:</label>
+                            <input type="color" class="form-control" id="configTextColor" style="height:45px;" onchange="actualizarDiseno()">
+                        </div>
+                        <div class="input-group">
+                            <label>Color del Encabezado (Header):</label>
+                            <input type="color" class="form-control" id="configHeaderBg" style="height:45px;" onchange="actualizarDiseno()">
+                        </div>
+                        <div class="input-group">
+                            <label>Color de Acento / Botones:</label>
+                            <input type="color" class="form-control" id="configAccentColor" style="height:45px;" onchange="actualizarDiseno()">
+                        </div>
+                    </div>
+
+                    <!-- IMAGEN DE FONDO DEL SITIO -->
+                    <div class="image-input-box">
+                        <label style="font-weight:700; font-size:13px;">Imagen de Fondo del Catálogo (Opcional):</label>
+                        <div class="image-input-mode-tabs" style="margin-top:8px;">
+                            <span class="mode-tab active" id="bgModeLinkTab" onclick="toggleBgInputMode('link')">Enlace URL</span>
+                            <span class="mode-tab" id="bgModeFileTab" onclick="toggleBgInputMode('file')">Subir Archivo Local</span>
+                        </div>
+                        
+                        <div id="bgUrlContainer">
+                            <input type="text" class="form-control" id="configBgUrl" placeholder="Pega el enlace https://..." onchange="actualizarDiseno()">
+                        </div>
+                        <div id="bgFileContainer" style="display:none;">
+                            <input type="file" class="form-control" accept="image/*" onchange="subirImagenFondoLocal(this)">
+                        </div>
+                        <button type="button" style="margin-top:8px; font-size:12px; color:#ef4444; border:none; background:none; cursor:pointer;" onclick="quitarImagenFondo()">Quitar Imagen de Fondo</button>
+                    </div>
+                </div>
+
+                <div class="admin-card">
+                    <h3><i class="fa-solid fa-font"></i> Tipografía y Tarjetas</h3>
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>Estilo de Fuente (Tipografía):</label>
+                            <select class="form-control" id="configFont" onchange="actualizarDiseno()">
+                                <option value="'Poppins', sans-serif">Poppins (Moderna & Limpia)</option>
+                                <option value="'Montserrat', sans-serif">Montserrat (Elegante & Premium)</option>
+                                <option value="'Roboto', sans-serif">Roboto (Clásica Versátil)</option>
+                                <option value="'Inter', sans-serif">Inter (Minimalista Contemporánea)</option>
+                                <option value="'Playfair Display', serif">Playfair Display (Lujo Formal)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: BANNERS DEL CARRUSEL -->
+            <div class="tab-content" id="tabCarrusel">
+                <div class="admin-card">
+                    <h3><i class="fa-solid fa-plus"></i> Agregar Nuevo Banner al Carrusel</h3>
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>Título del Banner:</label>
+                            <input type="text" class="form-control" id="newSlideTitle" placeholder="Ej: Colección Deportiva 2026">
+                        </div>
+                        <div class="input-group">
+                            <label>Subtítulo / Descripción:</label>
+                            <input type="text" class="form-control" id="newSlideSub" placeholder="Ej: Hasta 30% de descuento este mes">
+                        </div>
+                    </div>
+
+                    <div class="image-input-box">
+                        <label style="font-weight:700; font-size:13px;">Imagen del Banner (URL o Archivo Local):</label>
+                        <div class="image-input-mode-tabs" style="margin-top:8px;">
+                            <span class="mode-tab active" id="slideModeLinkTab" onclick="toggleSlideInputMode('link')">Link URL</span>
+                            <span class="mode-tab" id="slideModeFileTab" onclick="toggleSlideInputMode('file')">Archivo Local</span>
+                        </div>
+                        
+                        <div id="slideUrlContainer">
+                            <input type="text" class="form-control" id="newSlideUrl" placeholder="https://..." onchange="previewSlideImage()">
+                        </div>
+                        <div id="slideFileContainer" style="display:none;">
+                            <input type="file" class="form-control" accept="image/*" onchange="cargarSlideLocal(this)">
+                        </div>
+                        <img id="newSlidePreview" class="img-preview-thumb" src="" alt="Vista previa" style="display:none; width:100%; height:140px;">
+                    </div>
+
+                    <button type="button" class="btn-block" style="margin-top:15px;" onclick="guardarNuevoSlide()">
+                        <i class="fa-solid fa-plus"></i> Añadir Banner
+                    </button>
+                </div>
+
+                <div class="admin-card">
+                    <h3><i class="fa-solid fa-images"></i> Banners Actuales</h3>
+                    <div id="slidesListContainer"></div>
+                </div>
+            </div>
+
+            <!-- TAB 4: AJUSTES & SEGURIDAD -->
+            <div class="tab-content" id="tabAjustes">
+                <div class="admin-card">
+                    <h3><i class="fa-solid fa-key"></i> Cambiar Contraseña del Administrador</h3>
+                    <div class="form-grid">
+                        <div class="input-group">
+                            <label>Nueva Contraseña:</label>
+                            <input type="password" class="form-control" id="newAdminPass" placeholder="Mínimo 4 caracteres">
+                        </div>
+                    </div>
+                    <button type="button" class="btn-block" onclick="cambiarPasswordAdmin()">
+                        <i class="fa-solid fa-lock"></i> Actualizar Contraseña
+                    </button>
+                </div>
+
+                <div class="admin-card">
+                    <h3><i class="fa-solid fa-database"></i> Copia de Seguridad & Datos Demo</h3>
+                    <p style="font-size:13px; color:#64748b; margin-bottom:15px;">Puedes exportar la información actual del catálogo o restaurar la configuración inicial de prueba.</p>
+                    <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                        <button type="button" class="btn-block" style="background:#0284c7;" onclick="exportarBackup()">
+                            <i class="fa-solid fa-download"></i> Exportar Respaldo (JSON)
+                        </button>
+                        <button type="button" class="btn-block" style="background:#ef4444;" onclick="restaurarDatosDemo()">
+                            <i class="fa-solid fa-rotate-left"></i> Restaurar Catálogo Demo
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT PRINCIPAL -->
+    <script>
+        // CATEGORÍAS POR DEFECTO CON ICONOS / SÍMBOLOS
+        const categoriasIniciales = [
+            { nombre: "Deportivos", icono: "fa-solid fa-person-running" },
+            { nombre: "Casuales", icono: "fa-solid fa-shoe-prints" },
+            { nombre: "Formales", icono: "fa-solid fa-user-tie" },
+            { nombre: "Sandalias", icono: "fa-solid fa-sun" },
+            { nombre: "Botas", icono: "fa-solid fa-mountain" }
+        ];
+
+        // DATOS INICIALES DEMO CON IMÁGENES HD
+        const catalogoInicial = [
+            {
+                id: 1,
+                nombre: "Air Pro Max Runner",
+                categoria: "Deportivos",
+                precio: 89.99,
+                tallas: "38, 39, 40, 41, 42, 43",
+                colores: [
+                    { nombre: "Rojo Pasión", hex: "#e11d48", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&q=80" },
+                    { nombre: "Azul Eléctrico", hex: "#2563eb", img: "https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?w=700&q=80" },
+                    { nombre: "Negro Stealth", hex: "#0f172a", img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=700&q=80" }
+                ]
+            },
+            {
+                id: 2,
+                nombre: "Urban Street Classic",
+                categoria: "Casuales",
+                precio: 65.00,
+                tallas: "36, 37, 38, 39, 40, 41",
+                colores: [
+                    { nombre: "Blanco Puro", hex: "#ffffff", img: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?w=700&q=80" },
+                    { nombre: "Amarillo Mostaza", hex: "#eab308", img: "https://images.unsplash.com/photo-1514989940723-e8e51635da99?w=700&q=80" }
+                ]
+            },
+            {
+                id: 3,
+                nombre: "Executive Oxford Leather",
+                categoria: "Formales",
+                precio: 110.00,
+                tallas: "39, 40, 41, 42, 43, 44",
+                colores: [
+                    { nombre: "Café Miel", hex: "#78350f", img: "https://images.unsplash.com/photo-1614252369475-531eba835eb1?w=700&q=80" },
+                    { nombre: "Negro Ejecutivo", hex: "#1e293b", img: "https://images.unsplash.com/photo-1533867617858-e7b97e060509?w=700&q=80" }
+                ]
+            },
+            {
+                id: 4,
+                nombre: "Summer Horizon Sandal",
+                categoria: "Sandalias",
+                precio: 39.99,
+                tallas: "35, 36, 37, 38, 39",
+                colores: [
+                    { nombre: "Cuero Marrón", hex: "#b45309", img: "https://images.unsplash.com/photo-1603808033192-082d6919d3e1?w=700&q=80" }
+                ]
+            },
+            {
+                id: 5,
+                nombre: "Wilderness Explorer Boot",
+                categoria: "Botas",
+                precio: 125.50,
+                tallas: "40, 41, 42, 43, 44, 45",
+                colores: [
+                    { nombre: "Marrón Táctico", hex: "#57534e", img: "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=700&q=80" }
+                ]
+            }
+        ];
+
+        const configInicial = {
+            storeName: "Calzados Elite",
+            storeSubtitle: "Catálogo Exclusivo 2026",
+            logo: "",
+            whatsapp: "584120000000",
+            bgColor: "#f4f6f9",
+            bgImage: "",
+            textColor: "#1e293b",
+            headerBg: "#ffffff",
+            accentColor: "#e11d48",
+            font: "'Poppins', sans-serif",
+            categorias: categoriasIniciales,
+            carousel: [
+                {
+                    img: "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=1400&q=80",
+                    title: "Nueva Colección Urban 2026",
+                    sub: "Diseño, comodidad y tendencia en cada paso."
+                },
+                {
+                    img: "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=1400&q=80",
+                    title: "Edición Limitada Pro Sports",
+                    sub: "Alto rendimiento para superar tus límites."
+                }
+            ]
+        };
+
+        // ESTADO GLOBAL DE LA APLICACIÓN
+        let catalogo = JSON.parse(localStorage.getItem('catalogoZapatos_v3')) || catalogoInicial;
+        let config = JSON.parse(localStorage.getItem('configCatalogo_v3')) || configInicial;
+        if (!config.categorias || config.categorias.length === 0) {
+            config.categorias = categoriasIniciales;
+        }
+        let adminPass = localStorage.getItem('adminPassword_v3') || 'admin123';
+        let isAdminLoggedIn = false;
+
+        let currentCategoryFilter = 'todos';
+        let currentCarouselIndex = 0;
+        let carouselInterval = null;
+        let selectedShoeForModal = null;
+        let selectedColorIndexForModal = 0;
+        let selectedSizeForModal = null;
+        let selectedIconForNewCat = "fa-solid fa-person-running";
+
+        // AL CARGAR LA PÁGINA
+        window.onload = () => {
+            aplicarConfiguracion();
+            renderCarrusel();
+            renderFiltrosCategorias();
+            renderProductos();
+            renderDropdownCategorias();
+            renderCategoriasAdminList();
+            iniciarAutoCarrusel();
+        };
+
+        // APLICAR CONFIGURACIÓN VISUAL (TEMA)
+        function aplicarConfiguracion() {
+            document.getElementById('headerTitle').innerHTML = `${config.storeName}`;
+            document.getElementById('headerSubtitle').innerText = config.storeSubtitle;
+            document.getElementById('pageTitle').innerText = `${config.storeName} | Catálogo de Zapatos`;
+
+            // Render del Logo de la Empresa o icono por defecto
+            const logoContainer = document.getElementById('brandLogoContainer');
+            if (config.logo) {
+                logoContainer.innerHTML = `<img src="${config.logo}" class="brand-logo-img" alt="${config.storeName}">`;
+            } else {
+                logoContainer.innerHTML = `<i class="fa-solid fa-shoe-prints brand-icon"></i>`;
+            }
+
+            document.documentElement.style.setProperty('--bg-color', config.bgColor);
+            document.documentElement.style.setProperty('--text-color', config.textColor);
+            document.documentElement.style.setProperty('--header-bg', config.headerBg);
+            document.documentElement.style.setProperty('--accent-color', config.accentColor);
+            document.documentElement.style.setProperty('--font-family', config.font);
+
+            if (config.bgImage) {
+                document.documentElement.style.setProperty('--bg-image', `url("${config.bgImage}")`);
+            } else {
+                document.documentElement.style.setProperty('--bg-image', 'none');
+            }
+
+            // Cargar datos en los inputs del Admin
+            document.getElementById('configStoreName').value = config.storeName;
+            document.getElementById('configStoreSubtitle').value = config.storeSubtitle;
+            document.getElementById('configWhatsapp').value = config.whatsapp || '';
+            document.getElementById('configBgColor').value = config.bgColor;
+            document.getElementById('configTextColor').value = config.textColor;
+            document.getElementById('configHeaderBg').value = config.headerBg;
+            document.getElementById('configAccentColor').value = config.accentColor;
+            document.getElementById('configFont').value = config.font;
+            document.getElementById('configBgUrl').value = config.bgImage || '';
+            document.getElementById('configLogoUrl').value = config.logo || '';
+
+            const logoPreview = document.getElementById('configLogoPreview');
+            if (config.logo) {
+                logoPreview.src = config.logo;
+                logoPreview.style.display = 'block';
+            } else {
+                logoPreview.style.display = 'none';
+            }
+        }
+
+        function guardarConfiguracion() {
+            localStorage.setItem('configCatalogo_v3', JSON.stringify(config));
+            aplicarConfiguracion();
+            renderFiltrosCategorias();
+            renderDropdownCategorias();
+            renderCategoriasAdminList();
+        }
+
+        function guardarCatalogo() {
+            localStorage.setItem('catalogoZapatos_v3', JSON.stringify(catalogo));
+            renderFiltrosCategorias();
+            renderProductos();
+        }
+
+        // RENDERIZAR CARRUSEL
+        function renderCarrusel() {
+            const inner = document.getElementById('carouselInner');
+            const dots = document.getElementById('carouselDots');
+            inner.innerHTML = '';
+            dots.innerHTML = '';
+
+            if (!config.carousel || config.carousel.length === 0) {
+                document.querySelector('.carousel-section').style.display = 'none';
+                return;
+            } else {
+                document.querySelector('.carousel-section').style.display = 'block';
+            }
+
+            config.carousel.forEach((slide, idx) => {
+                inner.innerHTML += `
+                    <div class="carousel-item">
+                        <img src="${slide.img}" alt="${slide.title}">
+                        <div class="carousel-overlay">
+                            <span class="carousel-badge"><i class="fa-solid fa-star"></i> Destacado</span>
+                            <h2>${slide.title}</h2>
+                            <p>${slide.sub}</p>
+                        </div>
+                    </div>
+                `;
+
+                dots.innerHTML += `
+                    <div class="dot ${idx === currentCarouselIndex ? 'active' : ''}" onclick="irASlide(${idx})"></div>
+                `;
+            });
+            actualizarPosicionCarrusel();
+        }
+
+        function moverCarrusel(step) {
+            currentCarouselIndex += step;
+            if (currentCarouselIndex >= config.carousel.length) currentCarouselIndex = 0;
+            if (currentCarouselIndex < 0) currentCarouselIndex = config.carousel.length - 1;
+            actualizarPosicionCarrusel();
+        }
+
+        function irASlide(index) {
+            currentCarouselIndex = index;
+            actualizarPosicionCarrusel();
+        }
+
+        function actualizarPosicionCarrusel() {
+            const inner = document.getElementById('carouselInner');
+            inner.style.transform = `translateX(-${currentCarouselIndex * 100}%)`;
+
+            document.querySelectorAll('.carousel-dots .dot').forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === currentCarouselIndex);
+            });
+        }
+
+        function iniciarAutoCarrusel() {
+            if (carouselInterval) clearInterval(carouselInterval);
+            carouselInterval = setInterval(() => moverCarrusel(1), 6000);
+        }
+
+        // FILTROS DE CATEGORÍAS CON SÍMBOLOS / ICONOS
+        function renderFiltrosCategorias() {
+            const bar = document.getElementById('categoryFilterBar');
+            bar.innerHTML = '';
+
+            // Botón Todos
+            const activeTodos = currentCategoryFilter === 'todos' ? 'active' : '';
+            bar.innerHTML += `
+                <button class="filter-btn ${activeTodos}" onclick="filtrarPorCategoria('todos')">
+                    <i class="fa-solid fa-border-all"></i> Todos
+                </button>
+            `;
+
+            const listaCategorias = [...(config.categorias || [])];
+            const nombresEnConfig = listaCategorias.map(c => c.nombre.toLowerCase());
+
+            // Agregar categorías de zapatos que no estén registradas en config aún
+            catalogo.forEach(z => {
+                if (z.categoria && !nombresEnConfig.includes(z.categoria.toLowerCase())) {
+                    listaCategorias.push({ nombre: z.categoria, icono: 'fa-solid fa-tag' });
+                    nombresEnConfig.push(z.categoria.toLowerCase());
+                }
+            });
+
+            listaCategorias.forEach(cat => {
+                const active = currentCategoryFilter.toLowerCase() === cat.nombre.toLowerCase() ? 'active' : '';
+                const iconoClass = cat.icono || 'fa-solid fa-tag';
+
+                bar.innerHTML += `
+                    <button class="filter-btn ${active}" onclick="filtrarPorCategoria('${cat.nombre}')">
+                        <i class="${iconoClass}"></i> ${cat.nombre}
+                    </button>
+                `;
+            });
+        }
+
+        function filtrarPorCategoria(cat) {
+            currentCategoryFilter = cat;
+            renderFiltrosCategorias();
+            filtrarProductos();
+        }
+
+        // DROPDOWN DE CATEGORÍAS EN EL FORMULARIO ADMIN
+        function renderDropdownCategorias(selectedName = '') {
+            const select = document.getElementById('shoeCategorySelect');
+            if (!select) return;
+            select.innerHTML = '';
+
+            (config.categorias || []).forEach(cat => {
+                const selected = (selectedName && selectedName.toLowerCase() === cat.nombre.toLowerCase()) ? 'selected' : '';
+                select.innerHTML += `<option value="${cat.nombre}" ${selected}>${cat.nombre}</option>`;
+            });
+        }
+
+        // GESTIÓN DE CATEGORÍAS (MODAL DE CREACIÓN)
+        function abrirModalNuevaCategoria() {
+            const modal = document.getElementById('categoryModal');
+            document.getElementById('newCategoryName').value = '';
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('show'), 10);
+        }
+
+        function seleccionarIcono(el) {
+            document.querySelectorAll('#iconPickerGrid .icon-option').forEach(i => i.classList.remove('selected'));
+            el.classList.add('selected');
+            selectedIconForNewCat = el.getAttribute('data-icon');
+        }
+
+        function guardarNuevaCategoria() {
+            const nombre = document.getElementById('newCategoryName').value.trim();
+            if (!nombre) {
+                alert("Por favor ingresa un nombre para la categoría.");
+                return;
+            }
+
+            const existe = (config.categorias || []).some(c => c.nombre.toLowerCase() === nombre.toLowerCase());
+            if (existe) {
+                alert("Esta categoría ya existe.");
+                return;
+            }
+
+            if (!config.categorias) config.categorias = [];
+            config.categorias.push({
+                nombre: nombre,
+                icono: selectedIconForNewCat || 'fa-solid fa-tag'
+            });
+
+            guardarConfiguracion();
+            cerrarModal('categoryModal');
+            renderDropdownCategorias(nombre); // Selecciona automáticamente la nueva categoría
+            alert(`¡Categoría "${nombre}" creada con éxito!`);
+        }
+
+        function renderCategoriasAdminList() {
+            const container = document.getElementById('categoriesAdminList');
+            if (!container) return;
+            container.innerHTML = '';
+
+            if (!config.categorias || config.categorias.length === 0) {
+                container.innerHTML = '<p style="color:#94a3b8; font-size:13px;">No hay categorías registradas.</p>';
+                return;
+            }
+
+            config.categorias.forEach((cat, idx) => {
+                container.innerHTML += `
+                    <div style="display:flex; gap:12px; align-items:center; background:#f8fafc; padding:10px 14px; border-radius:10px; margin-bottom:8px; border:1px solid #e2e8f0;">
+                        <i class="${cat.icono || 'fa-solid fa-tag'}" style="font-size:18px; color:var(--accent-color); width:25px; text-align:center;"></i>
+                        <strong style="font-size:14px; flex-grow:1;">${cat.nombre}</strong>
+                        <button type="button" class="btn-danger-icon" onclick="eliminarCategoria(${idx})" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `;
+            });
+        }
+
+        function eliminarCategoria(idx) {
+            const cat = config.categorias[idx];
+            if (confirm(`¿Deseas eliminar la categoría "${cat.nombre}"?`)) {
+                config.categorias.splice(idx, 1);
+                guardarConfiguracion();
+            }
+        }
+
+        // RENDERIZAR ZAPATOS (GRID)
+        function renderProductos() {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+
+            const busqueda = document.getElementById('searchInput').value.toLowerCase().trim();
+
+            const filtrados = catalogo.filter(z => {
+                const coincideCat = (currentCategoryFilter === 'todos' || z.categoria.toLowerCase() === currentCategoryFilter.toLowerCase());
+                const coincideNombre = z.nombre.toLowerCase().includes(busqueda) || z.categoria.toLowerCase().includes(busqueda);
+                return coincideCat && coincideNombre;
+            });
+
+            if (filtrados.length === 0) {
+                grid.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fa-solid fa-shoe-prints"></i>
+                        <h3>No se encontraron zapatos</h3>
+                        <p style="color:#64748b; font-size:14px; margin-top:5px;">Intenta cambiar el término de búsqueda o filtro de categoría.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            filtrados.forEach(z => {
+                const primeraImg = (z.colores && z.colores.length > 0) ? z.colores[0].img : 'https://via.placeholder.com/400x300?text=Sin+Imagen';
+                
+                let coloresHTML = '';
+                if (z.colores && z.colores.length > 0) {
+                    z.colores.forEach((c, idx) => {
+                        const activeClass = idx === 0 ? 'active' : '';
+                        coloresHTML += `
+                            <div class="color-dot ${activeClass}" 
+                                 style="background-color:${c.hex};" 
+                                 title="${c.nombre || 'Color'}" 
+                                 onclick="cambiarColorCard(event, ${z.id}, ${idx}, '${c.img}')">
+                            </div>
+                        `;
+                    });
+                }
+
+                let tallasHTML = z.tallas ? z.tallas.split(',').map(t => `<span class="size-tag">${t.trim()}</span>`).join('') : '';
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <span class="card-badge">${z.categoria}</span>
+                    <div class="card-image-container" onclick="abrirModalDetalle(${z.id})">
+                        <img src="${primeraImg}" class="card-image" id="cardImg-${z.id}" alt="${z.nombre}">
+                    </div>
+                    <div class="card-body">
+                        <span class="card-category">${z.categoria}</span>
+                        <h3 class="card-title">${z.nombre}</h3>
+                        <div class="card-price">$${parseFloat(z.precio || 0).toFixed(2)}</div>
+                        
+                        <div class="card-sizes-wrapper">
+                            <div class="card-sizes-label">Tallas disponibles:</div>
+                            <div class="size-tags">${tallasHTML}</div>
+                        </div>
+
+                        <div class="card-colors-section">
+                            <span class="colors-label">Colores:</span>
+                            <div class="colors-list" id="colorsList-${z.id}">
+                                ${coloresHTML}
+                            </div>
+                        </div>
+
+                        <button class="btn-detail" onclick="abrirModalDetalle(${z.id})">
+                            <i class="fa-solid fa-eye"></i> Ver Detalle y Pedir
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // CAMBIO DINÁMICO DE IMAGEN AL SELECCIONAR COLOR EN LA TARJETA
+        function cambiarColorCard(event, shoeId, colorIdx, imgUrl) {
+            event.stopPropagation();
+            const imgElement = document.getElementById(`cardImg-${shoeId}`);
+            if (imgElement && imgUrl) {
+                imgElement.src = imgUrl;
+            }
+
+            const colorsContainer = document.getElementById(`colorsList-${shoeId}`);
+            if (colorsContainer) {
+                colorsContainer.querySelectorAll('.color-dot').forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === colorIdx);
+                });
+            }
+        }
+
+        function filtrarProductos() {
+            renderProductos();
+        }
+
+        // MODAL DE DETALLE Y PEDIDO POR WHATSAPP
+        function abrirModalDetalle(shoeId) {
+            const shoe = catalogo.find(z => z.id === shoeId);
+            if (!shoe) return;
+
+            selectedShoeForModal = shoe;
+            selectedColorIndexForModal = 0;
+            selectedSizeForModal = null;
+
+            document.getElementById('modalCategory').innerText = shoe.categoria;
+            document.getElementById('modalTitle').innerText = shoe.nombre;
+            document.getElementById('modalPrice').innerText = `$${parseFloat(shoe.precio || 0).toFixed(2)}`;
+
+            const imgModal = document.getElementById('modalImg');
+            imgModal.src = (shoe.colores && shoe.colores[0]) ? shoe.colores[0].img : '';
+
+            // Colores
+            const colorsContainer = document.getElementById('modalColors');
+            colorsContainer.innerHTML = '';
+            if (shoe.colores) {
+                shoe.colores.forEach((c, idx) => {
+                    colorsContainer.innerHTML += `
+                        <div class="color-dot ${idx === 0 ? 'active' : ''}" 
+                             style="background:${c.hex}; width:32px; height:32px;" 
+                             title="${c.nombre}"
+                             onclick="seleccionarColorModal(${idx})">
+                        </div>
+                    `;
+                });
+            }
+
+            // Tallas
+            const sizesContainer = document.getElementById('modalSizes');
+            sizesContainer.innerHTML = '';
+            const listaTallas = shoe.tallas ? shoe.tallas.split(',').map(t => t.trim()) : [];
+            listaTallas.forEach(talla => {
+                sizesContainer.innerHTML += `
+                    <div class="size-option" onclick="seleccionarTallaModal(this, '${talla}')">${talla}</div>
+                `;
+            });
+
+            actualizarBotonWhatsapp();
+
+            const modal = document.getElementById('detailModal');
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('show'), 10);
+        }
+
+        function seleccionarColorModal(colorIdx) {
+            selectedColorIndexForModal = colorIdx;
+            const c = selectedShoeForModal.colores[colorIdx];
+            if (c) {
+                document.getElementById('modalImg').src = c.img;
+            }
+
+            document.querySelectorAll('#modalColors .color-dot').forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === colorIdx);
+            });
+
+            actualizarBotonWhatsapp();
+        }
+
+        function seleccionarTallaModal(el, talla) {
+            selectedSizeForModal = talla;
+            document.querySelectorAll('#modalSizes .size-option').forEach(opt => opt.classList.remove('selected'));
+            el.classList.add('selected');
+            actualizarBotonWhatsapp();
+        }
+
+        function actualizarBotonWhatsapp() {
+            const btn = document.getElementById('btnWhatsapp');
+            const phone = config.whatsapp || '';
+            const colorNombre = (selectedShoeForModal.colores && selectedShoeForModal.colores[selectedColorIndexForModal]) ? selectedShoeForModal.colores[selectedColorIndexForModal].nombre : '';
+            const tallaTexto = selectedSizeForModal ? selectedSizeForModal : 'Por seleccionar';
+
+            const mensaje = `Hola! 👋 Quisiera más información / pedir el modelo:
+👟 *${selectedShoeForModal.nombre}*
+🎨 Color: *${colorNombre}*
+📏 Talla: *${tallaTexto}*
+💰 Precio: *$${parseFloat(selectedShoeForModal.precio || 0).toFixed(2)}*`;
+
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(mensaje)}`;
+            btn.href = url;
+        }
+
+        function cerrarModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('show');
+            setTimeout(() => modal.style.display = 'none', 300);
+        }
+
+        // AUTENTICACIÓN ADMINISTRADOR
+        function abrirAdminModal() {
+            if (isAdminLoggedIn) {
+                abrirAdminDrawer();
+            } else {
+                const modal = document.getElementById('loginModal');
+                modal.style.display = 'flex';
+                setTimeout(() => modal.classList.add('show'), 10);
+            }
+        }
+
+        function autenticarAdmin(e) {
+            e.preventDefault();
+            const pass = document.getElementById('adminPassInput').value;
+            if (pass === adminPass) {
+                isAdminLoggedIn = true;
+                cerrarModal('loginModal');
+                document.getElementById('adminPassInput').value = '';
+                abrirAdminDrawer();
+            } else {
+                alert("Contraseña incorrecta. Inténtalo de nuevo.");
+            }
+        }
+
+        function abrirAdminDrawer() {
+            document.getElementById('adminDrawer').classList.add('open');
+            renderDropdownCategorias();
+            renderCategoriasAdminList();
+            renderTablaZapatosAdmin();
+            renderSlidesAdmin();
+            if (document.getElementById('colorVariantsContainer').children.length === 0) {
+                agregarFilaColor();
+            }
+        }
+
+        function cerrarAdminDrawer() {
+            document.getElementById('adminDrawer').classList.remove('open');
+        }
+
+        function switchAdminTab(tabId, tabEl) {
+            document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            tabEl.classList.add('active');
+            document.getElementById(tabId).classList.add('active');
+        }
+
+        // ADMINISTRACIÓN DE ZAPATOS
+        let colorCounter = 0;
+        function agregarFilaColor(nombre = '', hex = '#e11d48', img = '') {
+            colorCounter++;
+            const container = document.getElementById('colorVariantsContainer');
+            const rowId = `colorRow_${colorCounter}`;
+
+            const div = document.createElement('div');
+            div.className = 'color-variant-row';
+            div.id = rowId;
+            div.innerHTML = `
+                <input type="color" class="form-control" value="${hex}" style="height:45px; padding:2px; cursor:pointer;" id="hex_${rowId}">
+                <input type="text" class="form-control" placeholder="Nombre color (Ej: Rojo)" value="${nombre}" id="name_${rowId}">
+                <div>
+                    <div style="display:flex; gap:5px; margin-bottom:4px;">
+                        <input type="text" class="form-control" placeholder="URL imagen o sube local..." value="${img}" id="img_${rowId}" style="margin:0;">
+                        <label class="mode-tab" style="padding:10px; cursor:pointer; background:#e2e8f0; display:flex; align-items:center;" title="Subir foto local">
+                            <i class="fa-solid fa-upload"></i>
+                            <input type="file" accept="image/*" style="display:none;" onchange="subirFotoColorLocal(this, '${rowId}')">
+                        </label>
+                    </div>
+                </div>
+                <button type="button" class="btn-danger-icon" onclick="eliminarFilaColor('${rowId}')" title="Eliminar"><i class="fa-solid fa-trash"></i></button>
+            `;
+            container.appendChild(div);
+        }
+
+        function eliminarFilaColor(rowId) {
+            const el = document.getElementById(rowId);
+            if (el) el.remove();
+        }
+
+        function subirFotoColorLocal(input, rowId) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    document.getElementById(`img_${rowId}`).value = e.target.result;
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function guardarZapato() {
+            const idEdit = document.getElementById('editShoeId').value;
+            const nombre = document.getElementById('shoeName').value.trim();
+            const categoria = document.getElementById('shoeCategorySelect').value;
+            const precio = parseFloat(document.getElementById('shoePrice').value) || 0;
+            const tallas = document.getElementById('shoeSizes').value.trim();
+
+            if (!nombre || !categoria || !tallas) {
+                alert("Por favor completa el nombre, categoría y tallas.");
+                return;
+            }
+
+            const colores = [];
+            const rows = document.querySelectorAll('.color-variant-row');
+            rows.forEach(r => {
+                const rowId = r.id;
+                const hex = document.getElementById(`hex_${rowId}`).value;
+                const nom = document.getElementById(`name_${rowId}`).value.trim() || 'Color';
+                const img = document.getElementById(`img_${rowId}`).value.trim();
+
+                if (img) {
+                    colores.push({ nombre: nom, hex: hex, img: img });
+                }
+            });
+
+            if (colores.length === 0) {
+                alert("Debes añadir al menos una variante de color con una imagen válida.");
+                return;
+            }
+
+            if (idEdit) {
+                // Editar existente
+                const index = catalogo.findIndex(z => z.id == idEdit);
+                if (index !== -1) {
+                    catalogo[index] = {
+                        id: parseInt(idEdit),
+                        nombre, categoria, precio, tallas, colores
+                    };
+                }
+            } else {
+                // Nuevo zapato
+                const nuevoZapato = {
+                    id: Date.now(),
+                    nombre, categoria, precio, tallas, colores
+                };
+                catalogo.unshift(nuevoZapato);
+            }
+
+            guardarCatalogo();
+            limpiarFormularioZapato();
+            renderTablaZapatosAdmin();
+            alert("¡Zapato guardado exitosamente!");
+        }
+
+        function cargarParaEditar(shoeId) {
+            const shoe = catalogo.find(z => z.id === shoeId);
+            if (!shoe) return;
+
+            document.getElementById('editShoeId').value = shoe.id;
+            document.getElementById('shoeName').value = shoe.nombre;
+            renderDropdownCategorias(shoe.categoria);
+            document.getElementById('shoePrice').value = shoe.precio;
+            document.getElementById('shoeSizes').value = shoe.tallas;
+
+            document.getElementById('formShoeTitle').innerHTML = `<i class="fa-solid fa-pen-to-square" style="color:var(--accent-color);"></i> Editar Zapato: ${shoe.nombre}`;
+
+            const container = document.getElementById('colorVariantsContainer');
+            container.innerHTML = '';
+            if (shoe.colores) {
+                shoe.colores.forEach(c => {
+                    agregarFilaColor(c.nombre, c.hex, c.img);
+                });
+            }
+        }
+
+        function eliminarZapato(shoeId) {
+            if (confirm("¿Estás seguro de que deseas eliminar este zapato?")) {
+                catalogo = catalogo.filter(z => z.id !== shoeId);
+                guardarCatalogo();
+                renderTablaZapatosAdmin();
+            }
+        }
+
+        function limpiarFormularioZapato() {
+            document.getElementById('editShoeId').value = '';
+            document.getElementById('shoeName').value = '';
+            renderDropdownCategorias();
+            document.getElementById('shoePrice').value = '';
+            document.getElementById('shoeSizes').value = '';
+            document.getElementById('formShoeTitle').innerHTML = `<i class="fa-solid fa-plus-circle" style="color:var(--accent-color);"></i> Añadir Nuevo Modelo`;
+            document.getElementById('colorVariantsContainer').innerHTML = '';
+            agregarFilaColor();
+        }
+
+        function renderTablaZapatosAdmin() {
+            const tbody = document.getElementById('shoesTableBody');
+            tbody.innerHTML = '';
+
+            catalogo.forEach(z => {
+                const img = (z.colores && z.colores[0]) ? z.colores[0].img : '';
+                tbody.innerHTML += `
+                    <tr>
+                        <td><img src="${img}" class="table-thumb" alt="${z.nombre}"></td>
+                        <td><strong>${z.nombre}</strong></td>
+                        <td><span class="size-tag">${z.categoria}</span></td>
+                        <td>$${parseFloat(z.precio || 0).toFixed(2)}</td>
+                        <td><small>${z.tallas}</small></td>
+                        <td>
+                            <button class="mode-tab" style="background:#3b82f6; color:white;" onclick="cargarParaEditar(${z.id})"><i class="fa-solid fa-pen"></i></button>
+                            <button class="mode-tab" style="background:#ef4444; color:white;" onclick="eliminarZapato(${z.id})"><i class="fa-solid fa-trash"></i></button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        // ADMINISTRACIÓN DE DISEÑO Y TEMA
+        function actualizarDiseno() {
+            config.storeName = document.getElementById('configStoreName').value || 'Calzados Elite';
+            config.storeSubtitle = document.getElementById('configStoreSubtitle').value || '';
+            config.whatsapp = document.getElementById('configWhatsapp').value || '';
+            config.bgColor = document.getElementById('configBgColor').value;
+            config.textColor = document.getElementById('configTextColor').value;
+            config.headerBg = document.getElementById('configHeaderBg').value;
+            config.accentColor = document.getElementById('configAccentColor').value;
+            config.font = document.getElementById('configFont').value;
+            config.bgImage = document.getElementById('configBgUrl').value;
+            
+            const logoUrlVal = document.getElementById('configLogoUrl').value.trim();
+            if (logoUrlVal) {
+                config.logo = logoUrlVal;
+            }
+
+            guardarConfiguracion();
+        }
+
+        function toggleLogoInputMode(mode) {
+            const isLink = mode === 'link';
+            document.getElementById('logoModeLinkTab').classList.toggle('active', isLink);
+            document.getElementById('logoModeFileTab').classList.toggle('active', !isLink);
+            document.getElementById('logoUrlContainer').style.display = isLink ? 'block' : 'none';
+            document.getElementById('logoFileContainer').style.display = isLink ? 'none' : 'block';
+        }
+
+        function subirLogoLocal(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    config.logo = e.target.result;
+                    document.getElementById('configLogoUrl').value = '';
+                    guardarConfiguracion();
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function quitarLogo() {
+            config.logo = '';
+            document.getElementById('configLogoUrl').value = '';
+            guardarConfiguracion();
+        }
+
+        function toggleBgInputMode(mode) {
+            const isLink = mode === 'link';
+            document.getElementById('bgModeLinkTab').classList.toggle('active', isLink);
+            document.getElementById('bgModeFileTab').classList.toggle('active', !isLink);
+            document.getElementById('bgUrlContainer').style.display = isLink ? 'block' : 'none';
+            document.getElementById('bgFileContainer').style.display = isLink ? 'none' : 'block';
+        }
+
+        function subirImagenFondoLocal(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    config.bgImage = e.target.result;
+                    document.getElementById('configBgUrl').value = '';
+                    guardarConfiguracion();
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function quitarImagenFondo() {
+            config.bgImage = '';
+            document.getElementById('configBgUrl').value = '';
+            guardarConfiguracion();
+        }
+
+        // ADMINISTRACIÓN DE CARRUSEL
+        let slideImageTemp = '';
+        function toggleSlideInputMode(mode) {
+            const isLink = mode === 'link';
+            document.getElementById('slideModeLinkTab').classList.toggle('active', isLink);
+            document.getElementById('slideModeFileTab').classList.toggle('active', !isLink);
+            document.getElementById('slideUrlContainer').style.display = isLink ? 'block' : 'none';
+            document.getElementById('slideFileContainer').style.display = isLink ? 'none' : 'block';
+        }
+
+        function previewSlideImage() {
+            const url = document.getElementById('newSlideUrl').value;
+            const img = document.getElementById('newSlidePreview');
+            if (url) {
+                slideImageTemp = url;
+                img.src = url;
+                img.style.display = 'block';
+            }
+        }
+
+        function cargarSlideLocal(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    slideImageTemp = e.target.result;
+                    const img = document.getElementById('newSlidePreview');
+                    img.src = slideImageTemp;
+                    img.style.display = 'block';
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function guardarNuevoSlide() {
+            const title = document.getElementById('newSlideTitle').value.trim() || 'Nuevo Banner';
+            const sub = document.getElementById('newSlideSub').value.trim() || '';
+
+            if (!slideImageTemp) {
+                alert("Por favor ingresa una URL de imagen o sube un archivo local para el banner.");
+                return;
+            }
+
+            if (!config.carousel) config.carousel = [];
+            config.carousel.push({
+                img: slideImageTemp,
+                title: title,
+                sub: sub
+            });
+
+            guardarConfiguracion();
+            renderCarrusel();
+            renderSlidesAdmin();
+
+            // Reset
+            document.getElementById('newSlideTitle').value = '';
+            document.getElementById('newSlideSub').value = '';
+            document.getElementById('newSlideUrl').value = '';
+            document.getElementById('newSlidePreview').style.display = 'none';
+            slideImageTemp = '';
+            alert("¡Banner agregado al carrusel!");
+        }
+
+        function renderSlidesAdmin() {
+            const container = document.getElementById('slidesListContainer');
+            container.innerHTML = '';
+
+            if (!config.carousel || config.carousel.length === 0) {
+                container.innerHTML = '<p style="color:#94a3b8; font-size:13px;">No hay banners en el carrusel.</p>';
+                return;
+            }
+
+            config.carousel.forEach((slide, idx) => {
+                container.innerHTML += `
+                    <div style="display:flex; gap:15px; align-items:center; background:#f8fafc; padding:12px; border-radius:12px; margin-bottom:10px; border:1px solid #e2e8f0;">
+                        <img src="${slide.img}" style="width:90px; height:50px; object-fit:cover; border-radius:8px;">
+                        <div style="flex-grow:1;">
+                            <strong style="font-size:14px; display:block;">${slide.title}</strong>
+                            <small style="color:#64748b;">${slide.sub}</small>
+                        </div>
+                        <button class="btn-danger-icon" onclick="eliminarSlide(${idx})"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                `;
+            });
+        }
+
+        function eliminarSlide(idx) {
+            if (confirm("¿Eliminar este banner del carrusel?")) {
+                config.carousel.splice(idx, 1);
+                guardarConfiguracion();
+                renderCarrusel();
+                renderSlidesAdmin();
+            }
+        }
+
+        // SEGURIDAD Y DATOS
+        function cambiarPasswordAdmin() {
+            const newP = document.getElementById('newAdminPass').value.trim();
+            if (newP.length < 4) {
+                alert("La contraseña debe tener al menos 4 caracteres.");
+                return;
+            }
+            adminPass = newP;
+            localStorage.setItem('adminPassword_v3', adminPass);
+            document.getElementById('newAdminPass').value = '';
+            alert("¡Contraseña de administrador actualizada con éxito!");
+        }
+
+        function exportarBackup() {
+            const data = {
+                catalogo,
+                config,
+                adminPass
+            };
+            const jsonStr = JSON.stringify(data, null, 2);
+            const blob = new Blob([jsonStr], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `backup_catalogo_zapatos_${Date.now()}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function restaurarDatosDemo() {
+            if (confirm("¿Estás seguro de restaurar el catálogo a los datos iniciales de demostración? Se sobrescribirán los cambios.")) {
+                catalogo = catalogoInicial;
+                config = configInicial;
+                adminPass = 'admin123';
+                localStorage.removeItem('catalogoZapatos_v3');
+                localStorage.removeItem('configCatalogo_v3');
+                localStorage.removeItem('adminPassword_v3');
+                
+                aplicarConfiguracion();
+                renderCarrusel();
+                renderFiltrosCategorias();
+                renderProductos();
+                renderDropdownCategorias();
+                renderCategoriasAdminList();
+                renderTablaZapatosAdmin();
+                renderSlidesAdmin();
+                alert("Catálogo restaurado a datos iniciales.");
+            }
+        }
+    // Keyboard shortcut to open admin panel
+document.addEventListener('keydown', function(e) {
+  if ((e.ctrlKey && e.key.toLowerCase() === 'p') || (e.shiftKey && e.key.toLowerCase() === 'p')) {
+    e.preventDefault();
+    abrirAdminModal();
+  }
+});
+</script>
+</body>
+</html>
